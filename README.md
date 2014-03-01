@@ -1,7 +1,7 @@
 drupal-cookbook
 ===============
 
-This is a Drupal chef cookbook designed to work with (https://github.com/willieseabrook/druploy "Druploy")
+This is a Drupal chef cookbook designed to work with [Druploy](https://github.com/willieseabrook/druploy)
 
 There are a number of Drupal cookbooks already available, but they tend not to work very well with standard Drupal agency workflow.
 
