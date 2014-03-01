@@ -1,0 +1,21 @@
+{
+    "users": ["admin"],
+    "authorization": {
+        "sudo": {
+            "users": ["admin"],
+            "passwordless": "true"
+        }
+    },
+    "mysql": {
+        "server_root_password": "examplepassword",
+        "server_repl_password": "examplepassword",
+        "server_debian_password": "examplepassword"
+    },
+    "run_list": [
+        "recipe[drupal::drupal-project]",
+        "recipe[drupal::default]",
+        "recipe[drupal::development]",
+        "recipe[drupal::drush]",
+        "recipe[user::data_bag]"
+    ]
+}

@@ -1,0 +1,20 @@
+site 'http://community.opscode.com/api/v1'
+
+cookbook 'apache2'
+cookbook 'mysql'
+cookbook 'memcached'
+cookbook 'mysql'
+cookbook 'sudo'
+
+cookbook 'drush',
+    :git => 'git@github.com:msonnabaum/chef-drush.git',
+    :ref => 'master'
+
+cookbook 'php',
+    :git => 'git@github.com:franklinkim/chef-opscode-php.git',
+    :ref => 'master'
+
+cookbook 'user',
+    :git => 'git@github.com:fnichol/chef-user.git',
+    :ref => 'master'
+

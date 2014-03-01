@@ -1,0 +1,7 @@
+{
+    "id"        : "admin",
+    "comment"   : "Admin",
+    "home"      : "/home/admin",
+    "groups"    : ["admin", "www-data"],
+    "ssh_keys"  : [""]
+}
