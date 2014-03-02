@@ -14,9 +14,6 @@ include_recipe "memcached"
 include_recipe "mysql::server"
 include_recipe "mysql::client"
 
-include_recipe "drupal::drush"
-
-# Tools
 %w{ git }.each do |p|
     package p do
         action :install
