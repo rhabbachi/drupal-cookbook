@@ -9,6 +9,7 @@
 include_recipe "build-essential"
 include_recipe "sudo"
 include_recipe "apache2"
+include_recipe "apache2::mod_rewrite"
 include_recipe "php"
 include_recipe "memcached"
 include_recipe "mysql::server"
@@ -28,7 +29,7 @@ end
 end
 
 # Drupal environment
-%w{ php5-curl php5-memcache php5-imagick php5-mysql libpcre3-dev }.each do |p|
+%w{ libapache2-mod-php5 php5-curl php5-memcache php5-imagick php5-mysql libpcre3-dev }.each do |p|
     package p do
         action :install
     end
