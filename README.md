@@ -9,3 +9,14 @@ This Drupal Chef Cookbook doesn't do anything with regards to installing Drupal 
 
 All it does is configure a LAMP server with optimal settings for Drupal
 
+# Installation #
+
+1. Chef, knife, knife solo
+
+# Usage #
+
+1. cp data_bags/users/example.json data_bags/users/admin.json
+1.1 Generate and paste ssh key text into the admin.json file
+2. cp nodes/example.json nodes/yourserver.com
+3. knife solo root@yourserver.com
+
