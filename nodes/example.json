@@ -1,8 +1,8 @@
 {
-    "users": ["admin"],
+    "users": ["example"],
     "authorization": {
         "sudo": {
-            "users": ["admin"],
+            "users": ["example"],
             "passwordless": "true"
         }
     },
@@ -12,10 +12,11 @@
         "server_debian_password": "examplepassword"
     },
     "run_list": [
+        "recipe[user::data_bag]",
         "recipe[drupal::drupal-project]",
         "recipe[drupal::default]",
         "recipe[drupal::development]",
-        "recipe[drupal::drush]",
-        "recipe[user::data_bag]"
+        "recipe[drupal::drush]"
+        /*"role[spec-low]"*/
     ]
 }

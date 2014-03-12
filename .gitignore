@@ -2,3 +2,4 @@
 /tmp/librarian/
 /nodes/*.json
 /data_bags/
+.vagrant
