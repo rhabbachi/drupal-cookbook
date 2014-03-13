@@ -1,7 +1,7 @@
 {
-    "id"        : "example",
-    "comment"   : "Example",
-    "home"      : "/home/example",
-    "groups"    : ["example", "www-data"],
+    "id"        : "drupal",
+    "comment"   : "Drupal",
+    "home"      : "/home/drupal",
+    "groups"    : ["drupal", "www-data"],
     "ssh_keys"  : [""]
 }
