@@ -1,8 +1,8 @@
 {
-    "users": ["example"],
+    "users": ["drupal"],
     "authorization": {
         "sudo": {
-            "users": ["example"],
+            "users": ["drupal"],
             "passwordless": "true"
         }
     },
