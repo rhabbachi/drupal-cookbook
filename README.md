@@ -45,8 +45,9 @@ vagrant plugin install vagrant-omnibus
 1. We provide a Gemfile with the dependency needed for running chef and chef solo.
 
 ```bash
-bundle install via Gemfile.
+bundle install
 ```
+
 # Usage #
 
 ## Vagrant ##
