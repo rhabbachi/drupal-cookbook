@@ -4,20 +4,12 @@
 #
 # Copyright 2014, Angry Cactus
 
-include_recipe "build-essential"
-include_recipe "sudo"
 include_recipe "apache2"
 include_recipe "apache2::mod_rewrite"
 include_recipe "php"
 include_recipe "memcached"
 include_recipe "mysql::server"
 include_recipe "mysql::client"
-
-%w{ git }.each do |p|
-    package p do
-        action :install
-    end
-end
 
 # Utilities
 %w{ tree }.each do |p|
