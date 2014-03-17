@@ -11,13 +11,6 @@ include_recipe "memcached"
 include_recipe "mysql::server"
 include_recipe "mysql::client"
 
-# Utilities
-%w{ tree }.each do |p|
-    package p do
-        action :install
-    end
-end
-
 # Drupal environment
 %w{ libapache2-mod-php5 php5-curl php5-memcache php5-imagick php5-mysql libpcre3-dev }.each do |p|
     package p do
