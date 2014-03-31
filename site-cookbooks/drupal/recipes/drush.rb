@@ -4,22 +4,8 @@
 #
 # Copyright 2014, Angry Cactus
 
-include_recipe "git"
-
-directory "/opt/composer" do
-    owner "root"
-    group "root"
-    mode 00644
-    action :create
-end
-
-execute 'curl -sS https://getcomposer.org/installer | php' do
-    cwd '/opt/composer'
-end
-
-execute 'mv composer.phar /usr/local/bin/composer' do
-    cwd '/opt/composer'
-end
+include_recipe 'git'
+include_recipe 'composer'
 
 git node['drush']['install_dir'] do
     repository "https://github.com/drush-ops/drush.git"
