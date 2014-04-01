@@ -30,6 +30,11 @@
     "drupal": {
       "path": "./site-cookbooks/drupal"
     },
+    "swap": {
+      "locked_version": "0.1.3",
+      "git": "https://github.com/att-cloud/cookbook-swap.git",
+      "ref": "c05f346e7fa486c81673f56aaeb74a1bdc421a82"
+    },
     "dmg": {
       "locked_version": "2.2.0"
     },
@@ -71,6 +76,9 @@
     },
     "iis": {
       "locked_version": "2.0.2"
+    },
+    "composer": {
+      "locked_version": "0.0.7"
     }
   }
 }
