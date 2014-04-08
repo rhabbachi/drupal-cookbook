@@ -12,7 +12,7 @@ include_recipe "mysql::server"
 include_recipe "mysql::client"
 
 # PHP modules needed for drupal.
-php_modules = %w{ libapache2-mod-php5 php5-curl php5-memcache php5-imagick php5-mysql libpcre3-dev }
+php_modules = %w{ libapache2-mod-php5 php5-gd php5-curl php5-memcache php5-imagick php5-mysql libpcre3-dev }
 # Pear modules needed for drupal.
 pear_modules = %w{ uploadprogress }
 

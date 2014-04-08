@@ -79,6 +79,27 @@
     },
     "composer": {
       "locked_version": "0.0.7"
+    },
+    "varnish": {
+      "locked_version": "0.9.12"
+    },
+    "database": {
+      "locked_version": "2.1.2"
+    },
+    "postgresql": {
+      "locked_version": "3.3.4"
+    },
+    "aws": {
+      "locked_version": "2.1.1"
+    },
+    "xfs": {
+      "locked_version": "1.1.0"
+    },
+    "mysql-chef_gem": {
+      "locked_version": "0.0.2"
+    },
+    "conf": {
+      "locked_version": "0.1.0"
     }
   }
 }
