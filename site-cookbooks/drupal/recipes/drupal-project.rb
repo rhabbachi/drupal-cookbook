@@ -1,10 +1,8 @@
 #
 # Cookbook Name:: drupal
-# Recipe:: dependencies
+# Recipe:: drupal-project
 #
-# Copyright 2014, YOUR_COMPANY_NAME
-#
-# All rights reserved - Do Not Redistribute
+# Copyright 2014, Angry Cactus
 #
 
 include_recipe "drupal::default"
