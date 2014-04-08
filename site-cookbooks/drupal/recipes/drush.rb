@@ -1,41 +1,25 @@
 #
 # Cookbook Name:: drupal
-# Recipe:: dependencies
+# Recipe:: drush
 #
-# Copyright 2014, YOUR_COMPANY_NAME
-#
-# All rights reserved - Do Not Redistribute
-#
+# Copyright 2014, Angry Cactus
 
-include_recipe "drupal::default"
+include_recipe 'git'
+include_recipe 'composer'
 
-directory "/opt/composer" do
-    owner "root"
-    group "root"
-    mode 00644
-    action :create
-end
 
-execute 'curl -sS https://getcomposer.org/installer | php' do
-    cwd '/opt/composer'
-end
-
-execute 'mv composer.phar /usr/local/bin/composer' do
-    cwd '/opt/composer'
-end
-
-git node['drush']['install_dir'] do
+git node['drupal']['drush']['install_dir'] do
     repository "https://github.com/drush-ops/drush.git"
-    reference node['drush']['version']
+    reference node['drupal']['drush']['version']
     action :sync
 end
 
 link "/usr/bin/drush" do
-    to "#{node['drush']['install_dir']}/drush"
+    to "#{node['drupal']['drush']['install_dir']}/drush"
 end
 
 execute 'composer install' do
-    cwd node['drush']['install_dir']
+    cwd node['drupal']['drush']['install_dir']
 end
 
 # php_pear is only working for PECL packages

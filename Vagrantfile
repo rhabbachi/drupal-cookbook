@@ -3,6 +3,7 @@
 
 require 'vagrant-berkshelf'
 require 'vagrant-omnibus'
+require 'vagrant-cachier'
 
 Vagrant.configure("2") do |config|
   # All Vagrant configuration is done here. The most common configuration
@@ -38,7 +39,7 @@ Vagrant.configure("2") do |config|
   # the path on the host to the actual folder. The second argument is
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
-  # config.vm.synced_folder "../data", "/vagrant_data"
+   config.vm.synced_folder "~/Public", "/Public"
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -48,7 +49,7 @@ Vagrant.configure("2") do |config|
      # Don't boot with headless mode
      #vb.gui = true
   
-     vb.name= "chef-vagrant"
+     vb.name= "drupal-cookbook"
      # Use VBoxManage to customize the VM. For example to change memory:
      #vb.customize ["modifyvm", :id, "--memory", "256"]
    end
@@ -58,8 +59,26 @@ Vagrant.configure("2") do |config|
 
   #config.ssh.max_tries = 40
   #config.ssh.timeout   = 120
+   if Vagrant.has_plugin?("vagrant-cachier")
+     # Configure cached packages to be shared between instances of the same base box.
+     # More info on http://fgrehm.viewdocs.io/vagrant-cachier/usage
+     config.cache.scope = :box
 
-  # Setup locales
+     # If you are using VirtualBox, you might want to use that to enable NFS for
+     # shared folders. This is also very useful for vagrant-libvirt if you want
+     # bi-directional sync
+     config.cache.synced_folder_opts = {
+       type: :nfs,
+       # The nolock option can be useful for an NFSv3 client that wants to avoid the
+       # NLM sideband protocol. Without this option, apt-get might hang if it tries
+       # to lock files needed for /var/cache/* operations. All of this can be avoided
+       # by using NFSv4 everywhere. Please note that the tcp option is not the default.
+       mount_options: ['rw', 'vers=3', 'tcp', 'nolock']
+     }
+     # For more information please check http://docs.vagrantup.com/v2/synced-folders/basic_usage.html
+   end
+
+   # Setup locales
    config.vm.provision "shell",
      inline: "sudo locale-gen en_US.UTF-8"
 
@@ -87,6 +106,9 @@ Vagrant.configure("2") do |config|
     chef.cookbooks_path = ["site-cookbooks"]
 
     chef.json = {
+      :drupal => {
+        :user => "vagrant"
+      },
       :mysql => {
         :server_root_password => 'rootpass',
         :server_debian_password => 'debpass',
@@ -95,13 +117,17 @@ Vagrant.configure("2") do |config|
     }
 
     chef.run_list = [
-      "recipe[drupal::drupal-project]",
       "recipe[drupal::default]",
       "recipe[drupal::development]",
       "recipe[drupal::drush]",
+
+      ## The varnish recipe needs a drupal site attribute.
+      #"recipe[drupal::varnish]",
+
       # Add role with low specs customization.
       #"role[spec-low]"
     ]
   end
+
 end
 

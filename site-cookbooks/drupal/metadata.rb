@@ -1,11 +1,19 @@
-name             'drupal'
-maintainer       'YOUR_COMPANY_NAME'
-maintainer_email 'YOUR_EMAIL'
-license          'All rights reserved'
-description      'Installs/Configures drupal'
-long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version          '0.1.0'
+name 'drupal'
+maintainer 'Angry Cactus Technlogy'
+maintainer_email 'contact@angrycactus.biz'
+license 'GPLv2.0'
+description 'Configure a LAMP serevr with optimal settings for Drupal.'
+version '0.1.1'
 
-%w{ mysql user sudo build-essential apache2 php memcached }.each do |cb|
-    depends cb
+# Dependencies.
+depends_recipes = %w{ mysql apache2 php memcached git composer varnish database conf }
+# Currentry we sopport only Ubuntu.
+supports_os = %w{ ubuntu }
+
+depends_recipes.each do |recipe|
+  depends recipe
+end
+
+supports_os.each do |os|
+  supports os
 end
