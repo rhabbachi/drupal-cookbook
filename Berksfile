@@ -8,7 +8,7 @@ cookbook 'sudo'
 cookbook 'apt'
 
 cookbook 'apache2'
-cookbook 'mysql'
+cookbook 'mysql', '= 4.1.2'
 cookbook 'php'
 cookbook 'memcached'
 cookbook 'drupal', path: 'site-cookbooks/drupal'
