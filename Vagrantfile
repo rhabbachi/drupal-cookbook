@@ -121,7 +121,6 @@ Vagrant.configure("2") do |config|
 
     chef.run_list = [
       "recipe[drupal::default]",
-      "recipe[drupal::devel]",
       "recipe[drupal::drush]",
 
       ## The varnish recipe needs a drupal site attribute.
