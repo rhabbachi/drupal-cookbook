@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+cd <%= node['drupal']['root'] %>
+drush archive-backup @sites\
+ --destination="<%= node['drupal']['backup']['source'] %>/<%= node['drupal']['name'] %>.tar.gz"\
+ --generator="chef-drupal-cookbook"\
+ --preserve-symlinks\
+ --overwrite
