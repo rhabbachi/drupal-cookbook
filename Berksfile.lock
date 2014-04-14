@@ -35,6 +35,11 @@
       "git": "https://github.com/att-cloud/cookbook-swap.git",
       "ref": "c05f346e7fa486c81673f56aaeb74a1bdc421a82"
     },
+    "buildbot": {
+      "locked_version": "0.0.5",
+      "git": "https://github.com/juanje/cookbook-buildbot.git",
+      "ref": "f9f11e97b18061e9dff616494708023860ee7e36"
+    },
     "dmg": {
       "locked_version": "2.2.0"
     },
@@ -100,6 +105,9 @@
     },
     "conf": {
       "locked_version": "0.1.0"
+    },
+    "python": {
+      "locked_version": "1.4.6"
     }
   }
 }
