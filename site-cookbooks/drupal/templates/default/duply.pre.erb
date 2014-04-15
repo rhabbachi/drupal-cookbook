@@ -1,0 +1,22 @@
+#!/usr/bin/env python2
+
+from subprocess import call, check_output
+import re
+from os import path
+
+# Find drupal root directories
+settings_files = check_output(['find'
+, r'<%= node['drupal']['backup']['root'] %>'
+, '-regex'
+, '.*sites/default/default.settings.php']
+, cwd=r'<%= node['drupal']['backup']['root'] %>').split()
+
+# Backup every Drupal directory with drupal
+for settings_file in settings_files:
+  root_path = re.sub(r'(.*)(.*/sites/default/default.settings.php)', r'\1', settings_file)
+  cmd_drush = ['drush', 'archive-backup', '@sites'
+  , '--destination=<%= node['drupal']['backup']['source'] %>/' + path.split(root_path)[1] + '.tar.gz'
+  , '--generator=chef-drupal-cookbook'
+  , '--preserve-symlinks'
+  , '--overwrite']
+  call(cmd_drush, cwd=root_path)

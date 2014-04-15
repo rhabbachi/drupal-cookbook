@@ -1,0 +1,21 @@
+###
+## Duply configuration as set by Drupal Cookbook.
+## Do not edit!
+###
+GPG_KEY='<%= node['drupal']['backup']['gpg_keys'].join(", ") %>'
+GPG_PW='<%= node['drupal']['backup']['gpg_passphrase'] %>'
+TARGET='<%= @target %>'
+SOURCE='<%= @source %>'
+<% unless node['drupal']['backup']['max_age'].nil? \
+     || node['drupal']['backup']['max_age'] == 0 %>
+MAX_AGE=<%= node['drupal']['backup']['max_age'] %>
+<% end %>
+<% unless node['drupal']['backup']['max_full_backups'].nil? \
+     || node['drupal']['backup']['max_fullbackups'] == 0 %>
+MAX_FULL_BACKUPS=<%= node['drupal']['backup']['max_full_backups'] %>
+<% end %>
+<% unless node['drupal']['backup']['max_fullbkp_age'].nil? \
+     || node['drupal']['backup']['max_fullbkp_age'] == 0 %>
+MAX_FULLBKP_AGE=<%= node['drupal']['backup']['max_fullbkp_age'] %>
+<% end %>
+#TEMP_DIR=/tmp

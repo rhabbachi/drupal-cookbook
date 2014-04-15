@@ -39,6 +39,9 @@
       "locked_version": "0.0.5",
       "git": "https://github.com/juanje/cookbook-buildbot.git",
       "ref": "f9f11e97b18061e9dff616494708023860ee7e36"
+    }
+    "cron": {
+      "locked_version": "1.3.6"
     },
     "dmg": {
       "locked_version": "2.2.0"
