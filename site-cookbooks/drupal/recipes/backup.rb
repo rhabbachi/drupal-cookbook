@@ -82,14 +82,15 @@ cron_d "chef_backup_#{ node['drupal']['name'] }" do
 end
 
 # Setup pre/post scripts
-duply_pre = "#{ duply_conf_root }/pre"
+duply_conf_pre = "#{ duply_conf_root }/pre"
+
 unless node['drupal']['druploy_enabled'] then
   ## PRE script
-  template duply_pre do
+  template duply_conf_pre do
     source "duply.pre.erb"
     owner "root"
     group "root"
-    mode 0644
+    mode 0544
   end
   ## POST script
 end
