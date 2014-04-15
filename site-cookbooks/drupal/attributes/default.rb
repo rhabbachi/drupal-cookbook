@@ -21,8 +21,12 @@ default['varnish']['vcl_conf'] = 'drupal.vcl'
 default['drupal']['restore']['path_source'] = ''
 default['drupal']['restore']['db_su'] = 'chef'
 default['drupal']['restore']['db_su_pw'] = 'chef'
+default['drupal']['restore']['db'] = 'drupal'
 default['drupal']['restore']['overwrite'] = 'true'
 # Backup
+## Directory containing Drupal sites to backup.
+default['drupal']['backup']['root'] = '/var/www'
+## Directory where to store backups
 default['drupal']['backup']['source'] = '/var/backups'
 ## Cron
 default['drupal']['backup']['minute'] = '*/3'
