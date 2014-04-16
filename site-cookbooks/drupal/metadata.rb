@@ -6,7 +6,7 @@ description 'Configure a LAMP serevr with optimal settings for Drupal.'
 version '0.1.1'
 
 # Dependencies.
-depends_recipes = %w{ mysql apache2 php memcached git composer varnish database conf cron }
+depends_recipes = %w{ mysql apache2 php memcached git composer varnish database conf cron buildbot }
 # Currentry we sopport only Ubuntu.
 supports_os = %w{ ubuntu }
 
