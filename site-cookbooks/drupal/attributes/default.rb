@@ -11,7 +11,7 @@ override['drupal'][ 'http' ][ 'ports' ] = [ '8080' ]
 default['drupal'][ 'user' ] = 'chef'
 # Drush
 default['drupal'][ 'drush' ]['install_dir'] = "/usr/share/php/drush"
-default['drupal'][ 'drush' ][ 'version' ] = "master"
+default['drupal'][ 'drush' ][ 'version' ] = "6.x"
 # Varnish
 override['drupal'][ 'varnish' ][ 'port' ] = 80
 default['varnish']['vcl_cookbook'] = 'drupal'
