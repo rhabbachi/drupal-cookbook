@@ -4,6 +4,7 @@
 #
 # Copyright 2014, Angry Cactus
 
+include_recipe "build-essential"
 include_recipe "apache2"
 include_recipe "apache2::mod_rewrite"
 include_recipe "php"
