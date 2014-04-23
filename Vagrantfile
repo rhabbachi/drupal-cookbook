@@ -5,9 +5,6 @@ require 'vagrant-berkshelf'
 require 'vagrant-omnibus'
 require 'vagrant-cachier'
 
-## Required Vagrant version.
-Vagrant.require_version "<= 1.4.3"
-
 Vagrant.configure("2") do |config|
   # All Vagrant configuration is done here. The most common configuration
   # options are documented and commented below. For a complete reference,
