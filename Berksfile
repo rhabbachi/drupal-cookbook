@@ -15,3 +15,5 @@ cookbook 'drupal', path: 'site-cookbooks/drupal'
 cookbook 'swap', git: 'https://github.com/att-cloud/cookbook-swap.git'
 cookbook 'buildbot', git: 'https://github.com/juanje/cookbook-buildbot.git'
 cookbook 'cron'
+
+metadata
