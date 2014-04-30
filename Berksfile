@@ -1,4 +1,4 @@
-site :opscode
+source "http://api.berkshelf.com"
 
 cookbook 'vim'
 cookbook 'git'
@@ -12,6 +12,6 @@ cookbook 'mysql', '= 4.1.2'
 cookbook 'php'
 cookbook 'memcached'
 cookbook 'drupal', path: 'site-cookbooks/drupal'
-cookbook 'swap', git: 'https://github.com/att-cloud/cookbook-swap.git'
-cookbook 'buildbot', git: 'https://github.com/juanje/cookbook-buildbot.git'
+cookbook 'swap', github: 'att-cloud/cookbook-swap'
+cookbook 'buildbot', github: 'rhabbachi/cookbook-buildbot'
 cookbook 'cron'

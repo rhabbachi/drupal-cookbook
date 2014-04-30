@@ -13,9 +13,9 @@
     },
     "run_list": [
         "recipe[user::data_bag]",
-        "recipe[drupal::drupal-project]",
+        "recipe[drupal::project]",
         "recipe[drupal::default]",
-        "recipe[drupal::development]",
+        "recipe[drupal::devel]",
         "recipe[drupal::drush]"
         /*"role[spec-low]"*/
     ]
