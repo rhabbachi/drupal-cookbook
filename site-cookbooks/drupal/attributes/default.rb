@@ -8,7 +8,7 @@ default['drupal']['name'] = 'drupal'
 default['drupal'][ 'root' ] = '/var/www/drupal'
 default['drupal'][ 'sites' ] = ['default']
 override['drupal'][ 'http' ][ 'ports' ] = [ '8080' ]
-default['drupal'][ 'user' ] = 'chef'
+default['drupal'][ 'user' ] = 'drupal'
 # Drush
 default['drupal'][ 'drush' ]['install_dir'] = "/usr/share/php/drush"
 default['drupal'][ 'drush' ][ 'version' ] = "6.x"

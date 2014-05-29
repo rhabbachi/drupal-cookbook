@@ -7,15 +7,22 @@
 # Setup backup strategy for the drupal site using drush archive.
 
 include_recipe 'drupal::drush'
+include_recipe 'python::pip'
 include_recipe 'cron'
 
 # Install dependency needed for duplicity
-duplicity_deps = %w{ rsync python-paramiko python-urllib3 python-oauthlib
-python-boto ncftp python-cloudfiles lftp python-gdata tahoe-lafs
-python-swiftclient duplicity }
+duplicity_deps = %w{ rsync ncftp lftp tahoe-lafs duplicity python-cloudfiles }
 
 duplicity_deps.each do |dep|
   package dep do
+    action :install
+  end
+end
+
+python_pkgs = %w{ paramiko urllib3 oauthlib boto gdata python-swiftclient }
+
+python_pkgs.each do |dep|
+  python_pip dep do
     action :install
   end
 end
