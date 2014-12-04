@@ -1,5 +1,26 @@
 # Dependencies overrides
+if node['platform_version'] == '14.04'
+  override['php']['ext_conf_dir'] = '/etc/php5/mods-available'
+end
+
 override['apache']['default_site_enabled'] = false
+override['apache']['default_modules'] = ['mod_alias', 'mod_auth_basic',
+                                         'mod_auth_digest', 'mod_authn_file',
+                                         'mod_authnz_ldap',
+                                         'mod_authz_groupfile',
+                                         'mod_authz_host', 'mod_authz_user',
+                                         'mod_autoindex', 'mod_cgi',
+                                         'mod_dav_fs', 'mod_dav_svn',
+                                         'mod_deflate', 'mod_dir', 'mod_env',
+                                         'mod_expires', 'mod_headers',
+                                         'mod_ldap', 'mod_log_config',
+                                         'mod_mime', 'mod_negotiation',
+                                         'mod_proxy', 'mod_proxy_ajp',
+                                         'mod_proxy_balancer',
+                                         'mod_proxy_connect', 'mod_proxy_http',
+                                         'mod_python', 'mod_rewrite',
+                                         'mod_setenvif', 'mod_status',
+                                         'mod_wsgi', 'mod_xsendfile']
 override['mysql']['bind_address'] = '127.0.0.1'
 # Drupal
 # Project
