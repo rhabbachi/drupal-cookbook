@@ -21,6 +21,7 @@ override['apache']['default_modules'] = ['mod_alias', 'mod_auth_basic',
                                          'mod_python', 'mod_rewrite',
                                          'mod_setenvif', 'mod_status',
                                          'mod_wsgi', 'mod_xsendfile']
+override['apache']['mpm'] = 'prefork'
 override['mysql']['bind_address'] = '127.0.0.1'
 # Drupal
 # Project
