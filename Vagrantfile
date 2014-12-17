@@ -1,23 +1,21 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-require 'vagrant-berkshelf'
-require 'vagrant-omnibus'
-require 'vagrant-cachier'
-
 Vagrant.configure("2") do |config|
   # All Vagrant configuration is done here. The most common configuration
   # options are documented and commented below. For a complete reference,
   # please see the online documentation at vagrantup.com.
 
-  config.vm.hostname = "vagrant-drupal-cookbook"
+  config.vm.hostname = "drupalcookbook.vagrant"
 
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "raring64"
+  config.vm.box = "ubuntu/trusty64"
+  #config.vm.box = "ubuntu/precise64"
 
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
-  config.vm.box_url = "http://cloud-images.ubuntu.com/vagrant/raring/current/raring-server-cloudimg-amd64-vagrant-disk1.box"
+  config.vm.box_url = "https://vagrantcloud.com/ubuntu/boxes/trusty64"
+  #config.vm.box_url = "https://vagrantcloud.com/ubuntu/boxes/precise64"
 
   # Assign this VM to a host-only network IP, allowing you to access it
   # via the IP. Host-only networks can talk to the host machine as well as
@@ -119,13 +117,8 @@ Vagrant.configure("2") do |config|
     chef.run_list = [
       "recipe[drupal::default]",
       "recipe[drupal::drush]",
-      "recipe[drupal::buildbot]"
-
-      ## The varnish recipe needs a drupal site attribute.
-      #"recipe[drupal::varnish]",
-
-      # Add role with low specs customization.
-      #"role[spec-low]"
+      "recipe[drupal::devel]",
+      "role[swap]"
     ]
   end
 
